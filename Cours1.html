@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours - VisionScience Gabon </title>
+    <link rel="stylesheet" href="./cs/cour1.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">PhysiqueChimie</span> Gabon</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="current"><a href="./Cours1.html">Cours</a></li>
+                    <li><a href="./TD et Examens.html">TD &amp; Examens</a></li>
+                    <li><a href="./Ressources.html">Ressources</a></li>
+                    <li><a href="./Connexion.html">Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="container">
+            <h1>Cours de Physique Chimie</h1>
+            <p>Bienvenue dans la section des cours. Explorez notre sélection de leçons passionnantes pour tous les niveaux.</p>
+            
+            <input type="text" id="searchInput" placeholder="Rechercher un cours...">
+            
+            <h2>Premier Cycle (6ème à 3ème)</h2>
+            <ul class="course-list">
+                <li class="course-item">
+                    <h3>6ème - Introduction à la matière</h3>
+                    <p>Découvrez les états de la matière et les changements d'état.</p>
+                </li>
+                <li class="course-item">
+                    <h3>5ème - L'eau dans notre environnement</h3>
+                    <p>Explorez le cycle de l'eau et ses propriétés.</p>
+                </li>
+                <li class="course-item">
+                    <h3>4ème - Électricité et circuits simples</h3>
+                    <p>Apprenez les bases de l'électricité et comment construire des circuits simples.</p>
+                </li>
+                <li class="course-item">
+                    <h3>3ème - Les forces et le mouvement</h3>
+                    <p>Étudiez les lois fondamentales de la mécanique.</p>
+                </li>
+            </ul>
+
+            <h2>Second Cycle (2nde à Terminale)</h2>
+            <ul class="course-list">
+                <li class="course-item">
+                    <h3>2nde - Atomes et molécules</h3>
+                    <p>Plongez dans la structure de la matière à l'échelle atomique.</p>
+                </li>
+                <li class="course-item">
+                    <h3>1ère - Ondes et signaux</h3>
+                    <p>Découvrez les propriétés des ondes sonores et électromagnétiques.</p>
+                </li>
+                <li class="course-item">
+                    <h3>Terminale - Mécanique quantique et relativité</h3>
+                    <p>Explorez les frontières de la physique moderne.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>PhysiqueChimie Gabon © 2023</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseItems = document.querySelectorAll('.course-item');
+            const searchInput = document.getElementById('searchInput');
+
+            courseItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const courseTitle = this.querySelector('h3').textContent;
+                    alert(`Le cours '${courseTitle}' va s'ouvrir.`);
+                });
+            });
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                courseItems.forEach(item => {
+                    const courseTitle = item.querySelector('h3').textContent.toLowerCase();
+                    const courseDesc = item.querySelector('p').textContent.toLowerCase();
+                    if (courseTitle.includes(searchTerm) || courseDesc.includes(searchTerm)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Animation d'apparition des cours
+            courseItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>

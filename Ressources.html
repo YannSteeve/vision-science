@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressources Pédagogiques - VisionScience Gabon </title>
+    <link rel="stylesheet" href="./cs/ressources.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">PhysiqueChimie</span> Gabon</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="./Cours1.html">Cours</a></li>
+                    <li><a href="./TD et Examens.html">TD &amp; Examens</a></li>
+                    <li class="current"><a href="./Ressources.html">Ressources</a></li>
+                    <li><a href="./Connexion.html">Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Ressources Pédagogiques Supplémentaires</h2>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h3>Fiches de Révision</h3>
+                <p>Téléchargez des fiches de révision condensées pour chaque chapitre du programme.</p>
+                <a href="fiches-revision.html">Accéder aux fiches</a>
+            </div>
+            <div class="resource-card">
+                <h3>Vidéos Explicatives</h3>
+                <p>Regardez des vidéos explicatives sur des concepts clés de physique et de chimie.</p>
+                <a href="videos-explicatives.html">Voir les vidéos</a>
+            </div>
+            <div class="resource-card">
+                <h3>Quiz Interactifs</h3>
+                <p>Testez vos connaissances avec nos quiz interactifs sur différents sujets.</p>
+                <a href="quiz-interactifs.html">Commencer un quiz</a>
+            </div>
+            <div class="resource-card">
+                <h3>Expériences Virtuelles</h3>
+                <p>Explorez des simulations d'expériences de laboratoire en ligne.</p>
+                <a href="experiences-virtuelles.html">Lancer une expérience</a>
+            </div>
+            <div class="resource-card">
+                <h3>Forum de Discussion</h3>
+                <p>Posez vos questions et échangez avec d'autres étudiants et enseignants.</p>
+                <a href="forum-discussion.html">Rejoindre le forum</a>
+            </div>
+            <div class="resource-card">
+                <h3>Bibliothèque de Formules</h3>
+                <p>Accédez à une collection complète de formules essentielles en physique et chimie.</p>
+                <a href="bibliotheque-formules.html">Consulter les formules</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>PhysiqueChimie Gabon &copy; 2023</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resourceCards = document.querySelectorAll('.resource-card');
+            resourceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+
+            // Simulation de chargement de ressources
+            const loadResources = () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        console.log("Ressources chargées");
+                        resolve();
+                    }, 1000);
+                });
+            };
+
+            loadResources().then(() => {
+                document.querySelectorAll('.resource-card a').forEach(link => {
+                    link.textContent += " (Chargé)";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

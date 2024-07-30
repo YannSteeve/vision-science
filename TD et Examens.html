@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD & Examens - VisionScience Gabon </title>
+    <link rel="stylesheet" href="./cs/TDetExamens.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Vision</span> Gabon</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="page.html">Accueil</a></li>
+                    <li><a href="./Cours1.html">Cours</a></li>
+                    <li><a href="./TD et Examens.html">TD &amp; Examens</a></li>
+                    <li><a href="./Ressources.html">Ressources</a></li>
+                    <li><a href="./Connexion.html">Connexion</a></li>
+                    <li class="current"><a href="./Inscription.html">inscription</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>TD & Corrigés</h2>
+            <ul class="td-list" id="tdList">
+                <!-- TD items will be dynamically added here -->
+            </ul>
+
+            <h2>Examens Nationaux</h2>
+            <ul class="exam-list" id="examList">
+                <!-- Exam items will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>PhysiqueChimie Gabon &copy; 2023</p>
+    </footer>
+
+    <script>
+        // Simulated data for TD and Exams
+        const tdData = [
+            { title: "TD 1 - Mécanique (6ème)", link: "td/6eme/mecanique.pdf" },
+            { title: "TD 2 - Électricité (5ème)", link: "td/5eme/electricite.pdf" },
+            { title: "TD 3 - Optique (4ème)", link: "td/4eme/optique.pdf" },
+            { title: "TD 4 - Chimie organique (3ème)", link: "td/3eme/chimie-organique.pdf" },
+            { title: "TD 5 - Thermodynamique (2nde)", link: "td/2nde/thermodynamique.pdf" },
+            { title: "TD 6 - Ondes (1ère)", link: "td/1ere/ondes.pdf" },
+            { title: "TD 7 - Relativité (Terminale)", link: "td/terminale/relativite.pdf" }
+        ];
+
+        const examData = [
+            { title: "Brevet 2022 - Sujet et Corrigé", link: "examens/brevet-2022.pdf" },
+            { title: "Brevet 2021 - Sujet et Corrigé", link: "examens/brevet-2021.pdf" },
+            { title: "Bac S 2022 - Sujet et Corrigé", link: "examens/bac-s-2022.pdf" },
+            { title: "Bac S 2021 - Sujet et Corrigé", link: "examens/bac-s-2021.pdf" }
+        ];
+
+        // Function to populate lists
+        function populateList(data, listId) {
+            const list = document.getElementById(listId);
+            data.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.link;
+                a.textContent = item.title;
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+        }
+
+        // Populate TD and Exam lists
+        document.addEventListener('DOMContentLoaded', function() {
+            populateList(tdData, 'tdList');
+            populateList(examData, 'examList');
+
+            // Add click event for PDF links
+            document.querySelectorAll('.td-list a, .exam-list a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert("Le téléchargement du document PDF commencerait ici. Dans un site réel, le fichier s'ouvrirait ou se téléchargerait.");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

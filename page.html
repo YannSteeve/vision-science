@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionScience Gabon - Apprentissage Interactif</title>
+    <link rel="stylesheet" href="./cs/page.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">VisionScience</span> Gabon</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="page.html">Accueil</a></li>
+                    <li><a href="./Cours1.html">Cours</a></li>
+                    <li><a href="./TD et Examens.html">TD &amp; Examens</a></li>
+                    <li><a href="./Ressources.html">Ressources</a></li>
+                    <li><a href="./Connexion.html">Connexion</a></li>
+                    <li class="current"><a href="./Inscription.html">inscription</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Bienvenue sur VisionScience Gabon </h1>
+            <p>Votre plateforme éducative interactive pour l'apprentissage de la Physique Chimie au secondaire au Gabon</p>
+            <div class="background-carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./images/images1.jpeg" alt="Étudiant gabonais en train d'étudier la physique">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/images2.jpeg" alt="Étudiante gabonaise réalisant une expérience de chimie">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/images3.jpeg" alt="Groupe d'étudiants gabonais travaillant ensemble sur un projet de physique">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="boxes">
+        <div class="container">
+            <div class="box">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'><circle cx='45' cy='45' r='40' fill='%2335424a'/><text x='45' y='55' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>Cours</text></svg>" alt="Icône représentant les cours">
+                <h3>Cours Interactifs</h3>
+                <p>Accédez à des cours de Physique Chimie conformes au programme gabonais</p>
+            </div>
+            <div class="box">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'><rect x='10' y='10' width='70' height='70' fill='%23e8491d'/><text x='45' y='55' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>TD</text></svg>" alt="Icône représentant les TD et examens">
+                <h3>TD &amp; Examens</h3>
+                <p>Préparez-vous efficacement avec nos corrigés de TD et sujets d'examens</p>
+            </div>
+            <div class="box">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'><polygon points='45,10 10,80 80,80' fill='%2335424a'/><text x='45' y='65' font-family='Arial' font-size='20' fill='white' text-anchor='middle'>Ressources</text></svg>" alt="Icône représentant les ressources supplémentaires">
+                <h3>Ressources Supplémentaires</h3>
+                <p>Explorez nos ressources pédagogiques pour approfondir vos connaissances</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>PhysiqueChimie Gabon © 2023</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                items.forEach(item => item.classList.remove('active'));
+                items[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            }
+
+            // Initial display
+            showSlide(currentIndex);
+
+            // Auto-play
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+</body>
+</html>
