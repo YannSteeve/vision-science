@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche d'Inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #35424a;
+            text-align: center;
+            border-bottom: 2px solid green;
+            padding-bottom: 10px;
+        }
+        .fiche-inscription {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .fiche-section {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .photo-upload {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .photo-frame {
+            width: 150px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="./index.html"><h1>Accueil</h1></a>
+    </header>
+    <div class="container">
+    <h1>Fiche d'Inscription</h1>
+    <form id="fiche-inscription-form" class="fiche-inscription">
+        <div class="photo-upload">
+            <div class="photo-frame" id="photo-preview">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+            </div>
+            <input type="file" id="photo-upload" accept="image/*">
+            <label for="photo-upload" style="cursor: pointer; color: green;">Choisir une photo</label>
+        </div>
+        <div class="fiche-section">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" >
+            
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" >
+            
+            <label for="date-naissance">Date de naissance</label>
+            <input type="date" id="date-naissance" name="date-naissance" >
+            
+            <label for="lieu-naissance">Lieu de naissance</label>
+            <input type="text" id="lieu-naissance" name="lieu-naissance" >
+        </div>
+        <div class="fiche-section">
+            <label for="etablissement">Établissement scolaire</label>
+            <input type="text" id="etablissement" name="etablissement" >
+            
+            <label for="niveau">Niveau d'étude</label>
+            <select id="niveau" name="niveau" >
+                <option value="">Sélectionnez votre niveau</option>
+                <option value="6eme">6ème</option>
+                <option value="5eme">5ème</option>
+                <option value="4eme">4ème</option>
+                <option value="3eme">3ème</option>
+                <option value="2nde">2nde</option>
+                <option value="1ere">1ère</option>
+                <option value="terminale">Terminale</option>
+            </select>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" >
+            
+            <label for="telephone">Numéro de téléphone</label>
+            <input type="tel" id="telephone" name="telephone" >
+        </div>
+        <div class="fiche-section" style="width: 100%;">
+            <label for="mode-paiement">Mode de paiement</label>
+            <select id="mode-paiement" name="mode-paiement" >
+                <option value="">Sélectionnez le mode de paiement</option>
+                <option value="carte-bancaire">Carte bancaire</option>
+                <option value="virement">Virement bancaire</option>
+                <option value="mobile-money">Mobile Money</option>
+            </select>
+        </div>
+            <div><button class="soumettre"><a href="/html/page d'acceuille de la 6ème.html">Soumettre l'inscription</button></a>
+            </div>
+
+    </form>
+</div>
+
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('fiche-inscription-form');
+            const photoUpload = document.getElementById('photo-upload');
+            const photoPreview = document.getElementById('photo-preview');
+
+            photoUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoPreview.innerHTML = `<img src="${e.target.result}" alt="Photo de l'élève" style="max-width: 100%; max-height: 100%;">`;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Ici, vous pouvez ajouter la logique pour envoyer les données du formulaire à votre serveur
+                alert('Inscription soumise avec succès!');
+            });
+        });
+    </script>
+</body></html>

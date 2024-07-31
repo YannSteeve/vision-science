@@ -1,0 +1,448 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École Numérique Gabonaise - Classe de 6ème</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #FFC107;
+            --text-color: #333;
+            --background-color: #F5F5F5;
+            --link-color: #2196F3;
+            --link-hover-color: #0D47A1;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 90%;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0.5rem;
+        }
+
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .search-bar button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .subject-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .subject-tab {
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .subject-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-list li:hover {
+            background-color: #e9f2ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .question-form textarea {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .question-form button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .question-form button:hover {
+            background-color: #45a049;
+        }
+
+        .resource-list li a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .resource-list li a:hover {
+            color: var(--link-hover-color);
+            background-color: rgba(33, 150, 243, 0.1);
+        }
+
+        .resource-list li a::before {
+            content: '📚 ';
+            margin-right: 0.5rem;
+        }
+
+        .resource-list li[data-subject="physique-chimie"] a::before {
+            content: '🧪 ';
+        }
+
+        .resource-list li[data-subject="math"] a::before {
+            content: '🔢 ';
+        }
+
+        .resource-list li[data-subject="svt"] a::before {
+            content: '🌿 ';
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin-top: 1rem;
+            background-color: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin-bottom: 0.5rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .search-bar button {
+                border-radius: 5px;
+            }
+
+            .subject-tabs {
+                flex-direction: column;
+            }
+
+            .subject-tab {
+                width: 100%;
+                margin: 0.25rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .home-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .resource-list li {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="container">
+        <h1>École Numérique Gabonaise</h1>
+        <p>Votre compagnon d'apprentissage pour la classe de 6ème</p>
+        <a href="./index.html" class="home-button">Retour à l'accueil</a>
+    </div>
+</header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#cours">Cours</a></li>
+                <li><a href="#ressources">Ressources</a></li>
+                <li><a href="#corriges">Corrigés</a></li>
+                <li><a href="#questions">Questions</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Rechercher des ressources...">
+            <button id="search-button">Rechercher</button>
+        </div>
+
+        <div class="content">
+    <section id="cours">
+        <h2>Cours</h2>
+        <div class="subject-tabs">
+            <button class="subject-tab active" data-subject="physique-chimie">Physique-Chimie</button>
+            <button class="subject-tab" data-subject="math">Mathématiques</button>
+            <button class="subject-tab" data-subject="svt">SVT</button>
+        </div>
+        <ul class="resource-list" id="cours-list">
+            <li data-subject="physique-chimie"><a href="https://websim.ai/cours/physique-chimie/introduction-matiere.html">Introduction à la matière</a></li>
+            <li data-subject="physique-chimie"><a href="https://websim.ai/cours/physique-chimie/etats-matiere.html">Les états de la matière</a></li>
+            <li data-subject="physique-chimie"><a href="https://websim.ai/cours/physique-chimie/melanges-solutions.html">Les mélanges et les solutions</a></li>
+            <li data-subject="physique-chimie"><a href="https://websim.ai/cours/physique-chimie/energie-formes.html">L'énergie et ses formes</a></li>
+            <li data-subject="math"><a href="https://websim.ai/cours/math/nombres-entiers.html">Les nombres entiers</a></li>
+            <li data-subject="math"><a href="https://websim.ai/cours/math/fractions-decimaux.html">Fractions et décimaux</a></li>
+            <li data-subject="math"><a href="https://websim.ai/cours/math/geometrie-base.html">Géométrie de base</a></li>
+            <li data-subject="math"><a href="https://websim.ai/cours/math/proportionnalite.html">Proportionnalité</a></li>
+            <li data-subject="svt"><a href="https://websim.ai/cours/svt/cellule.html">La cellule</a></li>
+            <li data-subject="svt"><a href="https://websim.ai/cours/svt/classification-etres-vivants.html">Classification des êtres vivants</a></li>
+            <li data-subject="svt"><a href="https://websim.ai/cours/svt/ecosystemes.html">Écosystèmes</a></li>
+            <li data-subject="svt"><a href="https://websim.ai/cours/svt/corps-humain.html">Le corps humain</a></li>
+        </ul>
+    </section>
+
+    <section id="ressources">
+        <h2>Ressources Pédagogiques</h2>
+        <ul class="resource-list">
+            <li><a href="https://websim.ai/ressources/quiz-etats-matiere.html">Quiz interactif : Les états de la matière</a></li>
+            <li><a href="https://websim.ai/ressources/labo-virtuel-melanges.html">Laboratoire virtuel : Créez vos propres mélanges</a></li>
+            <li><a href="https://websim.ai/ressources/jeu-voyage-energie.html">Jeu éducatif : Voyage au cœur de l'énergie</a></li>
+            <li><a href="https://websim.ai/ressources/video-fractions.html">Vidéo animée : Les fractions expliquées simplement</a></li>
+            <li><a href="https://websim.ai/ressources/puzzle-geometrie.html">Puzzle mathématique : Géométrie dans la vie quotidienne</a></li>
+            <li><a href="https://websim.ai/ressources/atlas-ecosystemes-gabon.html">Atlas interactif : Explorez les écosystèmes du Gabon</a></li>
+            <li><a href="https://websim.ai/ressources/simulation-corps-humain.html">Simulation 3D : Voyage à l'intérieur du corps humain</a></li>
+        </ul>
+    </section>
+
+    <section id="corriges">
+        <h2>Corrigés</h2>
+        <ul class="resource-list">
+            <li><a href="https://websim.ai/corriges/td-melanges-homogenes-heterogenes.html">Corrigé TD : Les mélanges homogènes et hétérogènes</a></li>
+            <li><a href="https://websim.ai/corriges/examen-energie-cinetique-potentielle.html">Corrigé Examen : L'énergie cinétique et potentielle</a></li>
+            <li><a href="https://websim.ai/corriges/td-equations-premier-degre.html">Corrigé TD : Résolution d'équations du premier degré</a></li>
+            <li><a href="https://websim.ai/corriges/examen-geometrie-espace.html">Corrigé Examen : Géométrie dans l'espace</a></li>
+            <li><a href="https://websim.ai/corriges/td-reproduction-plantes-fleurs.html">Corrigé TD : La reproduction des plantes à fleurs</a></li>
+            <li><a href="https://websim.ai/corriges/examen-cycles-matiere-ecosystemes.html">Corrigé Examen : Les cycles de la matière dans les écosystèmes</a></li>
+        </ul>
+    </section>
+
+    <section id="questions">
+        <h2>Posez vos questions</h2>
+        <form class="question-form">
+            <textarea placeholder="Écrivez votre question ici... N'hésitez pas à être précis !"></textarea>
+            <button type="submit">Envoyer ma question</button>
+        </form>
+    </section>
+</div>
+    </div>
+
+    <script>
+        // Fonctionnalité de recherche avancée
+        document.getElementById('search-button').addEventListener('click', function() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const resources = document.querySelectorAll('.resource-list li');
+            
+            resources.forEach(resource => {
+                const text = resource.textContent.toLowerCase();
+                if(text.includes(searchTerm)) {
+                    resource.style.display = 'list-item';
+                } else {
+                    resource.style.display = 'none';
+                }
+            });
+        });
+
+        // Envoi de question
+        document.querySelector('.question-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const question = document.querySelector('.question-form textarea').value;
+            if(question.trim() !== '') {
+                alert('Votre question a été envoyée avec succès ! Un professeur y répondra bientôt.');
+                document.querySelector('.question-form textarea').value = '';
+            } else {
+                alert('Oups ! Votre question semble être vide. N\'hésitez pas à nous poser une vraie question !');
+            }
+        });
+
+        // Gestion des onglets de matières
+        const subjectTabs = document.querySelectorAll('.subject-tab');
+        const courseItems = document.querySelectorAll('#cours-list li');
+
+        subjectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const subject = tab.getAttribute('data-subject');
+                
+                // Mise à jour des onglets actifs
+                subjectTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Filtrage des cours avec animation
+                courseItems.forEach(item => {
+                    if (item.getAttribute('data-subject') === subject) {
+                        item.style.display = 'list-item';
+                        item.style.animation = 'fadeIn 0.5s';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialisation : afficher les cours de Physique-Chimie par défaut
+        document.querySelector('.subject-tab[data-subject="physique-chimie"]').click();
+
+        // Animation pour les éléments de la liste de ressources
+        const resourceItems = document.querySelectorAll('.resource-list li');
+        resourceItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-5px)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

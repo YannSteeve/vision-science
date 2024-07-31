@@ -87,7 +87,7 @@
         background-color: #e8491d;
         text-align: center;
     }
-    @media(max-width: 768px) {
+    /* @media(max-width: 768px) {
         header #branding,
         header nav,
         header nav li,
@@ -102,4 +102,35 @@
         #showcase h1 {
             margin-top: 40px;
         }
+    } */
+
+    /* Media Query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
     }
+
+    #branding h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* Media Query pour les écrans de moins de 480px */
+@media (max-width: 480px) {
+    #branding h1 {
+        font-size: 1.2em;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}

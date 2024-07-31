@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionScience Gabon - Apprentissage Interactif</title>
+    <link rel="stylesheet" href="../css/page.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../images/Ecole 241 Pro.png" alt="Logo ">
+            <h1>VisionScience-Ga</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher..." id="search">
+            <button id="searchButton">🔍</button>
+        </div>
+        <nav id="navMenu">
+            <ul class="nat">
+                <li><a href="./Connexion.html"> Connexion</a></li>
+                <li><a href="./Inscription photo payement.html">Inscription</a></li>
+
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginButton"><a class="btn" href="./Connexion.html"> Connexion </a></button>
+            <button id="signupButton"><a class="btn" href="./Inscription photo payement.html">Inscription</a></button>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+        <script src="./js/page.js"></script>
+    </header>
+  
+
+
+    <section id="showcase">
+        <div class="container">
+            <div class="PP1">
+              <h2 id="typed-heading" class="heading">
+                    <p class="PP">VISION SCIENCE GABON</p> 
+                    <span class="typed" aria-hidden="true"></span>
+                    <span class="typed-cursor" aria-hidden="true">|</span>
+              </h2>
+                    <script src="/js/script.js"></script>
+            </div>
+            
+            <div class="bt"><button class="inscription"><a href="./Inscription photo payement.html">INSCRIVOUS VOUS MAINTENANT </a></button></div>
+            <div class="background-carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../images/image1.jpg" alt="Étudiant gabonais en train d'étudier la physique">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/image2.jpg" alt="Étudiante gabonaise réalisant une expérience de chimie">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/image3.jpg" alt="Groupe d'étudiants gabonais travaillant ensemble sur un projet de physique">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="boxes">
+        <div class="container">
+            <h2>Ressources Pédagogiques</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Fiches de Révision</h3>
+                    <p>Téléchargez des fiches de révision condensées pour chaque chapitre du programme.</p>
+                    <a href="/html/Inscription photo payement.html">Accéder aux fiches</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Vidéos Explicatives</h3>
+                    <p>Regardez des vidéos explicatives sur des concepts clés de physique et de chimie.</p>
+                    <a href="videos-explicatives.html">Voir les vidéos</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Quiz Interactifs</h3>
+                    <p>Testez vos connaissances avec nos quiz interactifs sur différents sujets.</p>
+                    <a href="quiz-interactifs.html">Commencer un quiz</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Expériences Virtuelles</h3>
+                    <p>Explorez des simulations d'expériences de laboratoire en ligne.</p>
+                    <a href="experiences-virtuelles.html">Lancer une expérience</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Forum de Discussion</h3>
+                    <p>Posez vos questions et échangez avec d'autres étudiants et enseignants.</p>
+                    <a href="forum-discussion.html">Rejoindre le forum</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Bibliothèque de Formules</h3>
+                    <p>Accédez à une collection complète de formules essentielles en physique et chimie.</p>
+                    <a href="bibliotheque-formules.html">Consulter les formules</a>
+                </div>
+            </div>
+        </div>
+    <!--fin des sections-->
+
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const resourceCards = document.querySelectorAll('.resource-card');
+                resourceCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        this.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 200);
+                    });
+                });
+    
+                // Simulation de chargement de ressources
+                const loadResources = () => {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            console.log("Ressources chargées");
+                            resolve();
+                        }, 1000);
+                    });
+                };
+    
+                loadResources().then(() => {
+                    document.querySelectorAll('.resource-card a').forEach(link => {
+                        link.textContent += " (Chargé)";
+                    });
+                });
+            });
+        </script>
+    </section>
+    <section class="subscription-section">
+        <div class="subscription-container">
+            <h1>Abonnement Annuel Premium</h1>
+            <p>Accédez aux fonctionnalités premium du site avec un abonnement annuel.</p>
+            <div class="price">
+                <span>5000</span> francs CFA/an
+            </div>
+            <button class="subscribe-btn"><a href="/html/Inscription photo payement.html">S'abonner maintenant </a></button>
+        </div>
+    </section><section id="boxes">
+        <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; padding: 40px 20px;">
+            <div style="display: flex; width: 100%; justify-content: space-around; margin-bottom: 40px;">
+                <div class="box" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; flex-basis: calc(45% - 20px); min-width: 200px; display: flex; flex-direction: column; align-items: center; padding: 20px;">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23e8491d'/><text x='50' y='50' font-family='Arial' font-size='45' text-anchor='middle' dy='.3em' fill='white'>M</text></svg>" alt="Mathématiques" style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                    <h3 style="color: #e8491d; font-size: 22px; margin-bottom: 15px;">Mathématiques</h3>
+                    <p style="color: #666; text-align: center; flex-grow: 1;">Explorez le programme trimestriel de mathématiques et découvrez des concepts passionnants.</p>
+                    <a href="/html/Inscription photo payement.html" style="display: inline-block; background-color: #e8491d; color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: background-color 0.3s ease;">En savoir plus</a>
+                </div>
+                <div class="box" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; flex-basis: calc(45% - 20px); min-width: 200px; display: flex; flex-direction: column; align-items: center; padding: 20px;">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2334a853'/><text x='50' y='50' font-family='Arial' font-size='45' text-anchor='middle' dy='.3em' fill='white'>S</text></svg>" alt="SVT" style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                    <h3 style="color: #34a853; font-size: 22px; margin-bottom: 15px;">SVT</h3>
+                    <p style="color: #666; text-align: center; flex-grow: 1;">Découvrez le programme trimestriel de Sciences de la Vie et de la Terre.</p>
+                    <a href="#" style="display: inline-block; background-color: #34a853; color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: background-color 0.3s ease;">En savoir plus</a>
+                </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-around;">
+                <div class="box" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; flex-basis: calc(45% - 20px); min-width: 200px; display: flex; flex-direction: column; align-items: center; padding: 20px;">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%234285f4'/><text x='50' y='50' font-family='Arial' font-size='45' text-anchor='middle' dy='.3em' fill='white'>P</text></svg>" alt="Physique" style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                    <h3 style="color: #4285f4; font-size: 22px; margin-bottom: 15px;">Physique</h3>
+                    <p style="color: #666; text-align: center; flex-grow: 1;">Accédez au programme trimestriel de physique.</p>
+                    <a href="#" style="display: inline-block; background-color: #4285f4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: background-color 0.3s ease;">En savoir plus</a>
+                </div>
+                <div class="box" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; flex-basis: calc(45% - 20px); min-width: 200px; display: flex; flex-direction: column; align-items: center; padding: 20px;">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23fbbc05'/><text x='50' y='50' font-family='Arial' font-size='45' text-anchor='middle' dy='.3em' fill='white'>C</text></svg>" alt="Chimie" style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                    <h3 style="color: #fbbc05; font-size: 22px; margin-bottom: 15px;">Chimie</h3>
+                    <p style="color: #666; text-align: center; flex-grow: 1;">Consultez le programme trimestriel de chimie.</p>
+                    <a href="#" style="display: inline-block; background-color: #fbbc05; color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: background-color 0.3s ease;">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>VisionScience Gabon &copy; 2024</p>
+        <p>
+            VISION SCIENCE GABON
+            DE LA DIFFICULTÉ À LA COMPRÉHENSION
+        </p>
+    </footer>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                items.forEach(item => item.classList.remove('active'));
+                items[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            }
+
+            // Initial display
+            showSlide(currentIndex);
+
+            // Auto-play
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #428323;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  nav {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px;
+  }
+  .content {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    color: #428323;
+  }
+  form {
+    margin-bottom: 20px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  button {
+    background-color: #428323;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Interface Administrateur </h1>
+  </header>
+
+  <nav>
+    <a href="#content">Gestion de Contenu</a>
+    <a href="#categories">Catégories et Tags</a>
+    <a href="#moderation">Modération</a>
+    <a href="./index.html">Accueil</a>
+  </nav>
+
+  <div class="container">
+    <div id="content" class="content">
+      <h2>Gestion de Contenu</h2>
+      <form id="contentForm">
+        <input type="text" placeholder="Titre du contenu" required="">
+        <textarea placeholder="Description du contenu" required=""></textarea>
+        <select required="">
+          <option value="">Sélectionner le type de contenu</option>
+          <option value="course">Cours</option>
+          <option value="evaluation">Évaluation</option>
+          <option value="resource">Ressource</option>
+        </select>
+        <input type="text" placeholder="Tags (séparés par des virgules)">
+        <button type="submit">Ajouter le contenu</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Introduction à la Géographie</td>
+            <td>Cours</td>
+            <td>
+              <button onclick="editContent(1)">Modifier</button>
+              <button onclick="deleteContent(1)">Supprimer</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Quiz de Mathématiques</td>
+            <td>Évaluation</td>
+            <td>
+              <button onclick="editContent(2)">Modifier</button>
+              <button onclick="deleteContent(2)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="categories" class="content">
+      <h2>Catégories et Tags</h2>
+      <form id="categoryForm">
+        <input type="text" placeholder="Nom de la catégorie" required="">
+        <button type="submit">Ajouter la catégorie</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Catégorie</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primaire</td>
+            <td>
+              <button onclick="editCategory(1)">Modifier</button>
+              <button onclick="deleteCategory(1)">Supprimer</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Secondaire</td>
+            <td>
+              <button onclick="editCategory(2)">Modifier</button>
+              <button onclick="deleteCategory(2)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="moderation" class="content">
+      <h2>Modération des Commentaires</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Utilisateur</th>
+            <th>Commentaire</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jean Kouassi</td>
+            <td>Ce cours était très instructif, merci !</td>
+            <td>
+              <button onclick="approveComment(1)">Approuver</button>
+              <button onclick="rejectComment(1)">Rejeter</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Marie Kone</td>
+            <td>J'ai trouvé une erreur dans le quiz de mathématiques.</td>
+            <td>
+              <button onclick="approveComment(2)">Approuver</button>
+              <button onclick="rejectComment(2)">Rejeter</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="student-stats" class="content">
+  <h2>Statistiques des Élèves Inscrits</h2>
+  <div id="student-count">
+    <h3>Premier Cycle</h3>
+    <p>Nombre total d'élèves inscrits : <span id="total-students-primary">15,234</span></p>
+    <p>Montant total des inscriptions : <span id="total-amount-primary">76,170,000</span> FCFA</p>
+    
+    <h3>Second Cycle</h3>
+    <p>Nombre total d'élèves inscrits : <span id="total-students-secondary">10,567</span></p>
+    <p>Montant total des inscriptions : <span id="total-amount-secondary">63,402,000</span> FCFA</p>
+  </div>
+  <div id="student-chart">
+  <div class="cycle-chart">
+    <h3>Premier Cycle</h3>
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="90" fill="#f2f2f2"></circle>
+      <path d="M100 10 A90 90 0 0 1 190 100 L100 100 Z" fill="#428323"></path>
+      <text x="100" y="100" text-anchor="middle" dy=".3em" font-size="24" fill="#fffff">59%</text>
+    </svg>
+    <p>15,234 élèves</p>
+    <p>76,170,000 FCFA</p>
+  </div>
+  <div class="cycle-chart">
+    <h3>Second Cycle</h3>
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="90" fill="#f2f2f2"></circle>
+      <path d="M100 10 A90 90 0 0 1 100 190 L100 100 Z" fill="#428323"></path>
+      <text x="100" y="100" text-anchor="middle" dy=".3em" font-size="24" fill="#fffff">41%</text>
+    </svg>
+    <p>10,567 élèves</p>
+    <p>63,402,000 FCFA</p>
+  </div>
+  <style>
+    #student-chart {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .cycle-chart {
+      text-align: center;
+      margin: 10px;
+    }
+    .cycle-chart h3 {
+      margin-bottom: 10px;
+    }
+    .cycle-chart p {
+      margin: 5px 0;
+    }
+  </style>
+
+  </div>
+
+  <script>
+    function editContent(id) {
+      alert('Modifier le contenu avec l\'ID: ' + id);
+    }
+
+    function deleteContent(id) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer ce contenu ?')) {
+        alert('Contenu supprimé avec l\'ID: ' + id);
+      }
+    }
+
+    function editCategory(id) {
+      alert('Modifier la catégorie avec l\'ID: ' + id);
+    }
+
+    function deleteCategory(id) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')) {
+        alert('Catégorie supprimée avec l\'ID: ' + id);
+      }
+    }
+
+    function approveComment(id) {
+      alert('Commentaire approuvé avec l\'ID: ' + id);
+    }
+
+    function rejectComment(id) {
+      if (confirm('Êtes-vous sûr de vouloir rejeter ce commentaire ?')) {
+        alert('Commentaire rejeté avec l\'ID: ' + id);
+      }
+    }
+
+    document.getElementById('contentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Contenu ajouté avec succès !');
+    });
+
+    document.getElementById('categoryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Catégorie ajoutée avec succès !');
+    });
+  </script>
+</body></html>

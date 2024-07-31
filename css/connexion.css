@@ -11,14 +11,16 @@ body {
     margin: auto;
     overflow: hidden;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 header {
-    background: #35424a;
+    background: #428323;
     color: #ffffff;
-    padding-top: 30px;
+    padding-top: 5px;
     min-height: 70px;
-    border-bottom: #e8491d 3px solid;
+    border-bottom: #2c0be6 3px solid;
 }
 
 header a {
@@ -55,7 +57,7 @@ header nav {
 }
 
 header .highlight, header .current a {
-    color: #e8491d;
+    color: #1d64e8;
     font-weight: bold;
 }
 
@@ -64,42 +66,44 @@ header a:hover {
     font-weight: bold;
 }
 
-.main-content {
+.login-container {
     background: #ffffff;
+    max-width: 400px;
+    margin: 50px auto;
     padding: 20px;
-    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.login-container h2 {
+    text-align: center;
+    color: #35424a;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input, .form-group select {
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="submit"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-.btn {
-    display: inline-block;
-    background: #e8491d;
+.login-form input[type="submit"] {
+    background-color: #1d64e8;
     color: #ffffff;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
 }
 
-.btn:hover {
-    background: #35424a;
+.login-form input[type="submit"]:hover {
+    background-color: #35424a;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
 }
 
 footer {
@@ -108,4 +112,8 @@ footer {
     color: #ffffff;
     background-color: #e8491d;
     text-align: center;
+}
+
+.current{
+    justify-content: space-between;
 }

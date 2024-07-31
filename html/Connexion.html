@@ -5,21 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - VisionScience Gabon</title>
-    <link rel="stylesheet" href="./cs/connexion.css">
+    <link rel="stylesheet" href="/css/connexion.css">
 </head>
 <body>
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class="highlight">PhysiqueChimie</span> Gabon</h1>
+                <h1><span class="highlight">vision sciences</span> Gabon</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="./page.html">Accueil</a></li>
-                    <li><a href="./Cours1.html">Cours</a></li>
-                    <li><a href="./TD et Examens.html">TD &amp; Examens</a></li>
-                    <li><a href="./ressources.html">Ressources</a></li>
-                    <li class="current"><a href="./connexion.html">Connexion</a></li>
+                    <li class="current"><a href="/html/index.html">Retour</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,15 +23,23 @@
 
     <div class="container">
         <div class="login-container">
-            <h2>Connexion</h2>
+            <h2>Elève</h2>
             <form class="login-form" id="loginForm">
                 <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
                 <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-                <input type="submit" value="Se connecter">
+                <button class><a href="/html/page d'acceuille de la 6ème.html">Se connecter</a></button>
             </form>
             <div class="register-link">
-                <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+                <p>Pas encore de compte ? <a href="./Inscription photo payement.html">S'inscrire</a></p>
             </div>
+        </div>
+        <div class="login-container">
+            <h2>Administrateur</h2>
+            <form class="login-form" id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                <button class><a href="/html/Administrateur.html">Se connecter</a></button>
+            </form>
         </div>
     </div>
 
